@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		E54592F0293E349300A23951 /* CS193P_Assignment3_SetGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54592EF293E349300A23951 /* CS193P_Assignment3_SetGameApp.swift */; };
-		E54592F2293E349300A23951 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54592F1293E349300A23951 /* ContentView.swift */; };
+		E54592F2293E349300A23951 /* SetGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54592F1293E349300A23951 /* SetGameView.swift */; };
 		E54592F4293E349400A23951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E54592F3293E349400A23951 /* Assets.xcassets */; };
 		E54592F7293E349400A23951 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E54592F6293E349400A23951 /* Preview Assets.xcassets */; };
+		E5459300293E34F400A23951 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54592FF293E34F400A23951 /* CardGame.swift */; };
+		E5459302293E37E700A23951 /* SetCardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5459301293E37E700A23951 /* SetCardGame.swift */; };
+		E5459304293F4C2600A23951 /* Oval.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5459303293F4C2600A23951 /* Oval.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E54592EC293E349300A23951 /* CS193P-Assignment3-SetGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CS193P-Assignment3-SetGame.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E54592EF293E349300A23951 /* CS193P_Assignment3_SetGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CS193P_Assignment3_SetGameApp.swift; sourceTree = "<group>"; };
-		E54592F1293E349300A23951 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E54592F1293E349300A23951 /* SetGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameView.swift; sourceTree = "<group>"; };
 		E54592F3293E349400A23951 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E54592F6293E349400A23951 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E54592FF293E34F400A23951 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
+		E5459301293E37E700A23951 /* SetCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardGame.swift; sourceTree = "<group>"; };
+		E5459303293F4C2600A23951 /* Oval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oval.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,10 @@
 			isa = PBXGroup;
 			children = (
 				E54592EF293E349300A23951 /* CS193P_Assignment3_SetGameApp.swift */,
-				E54592F1293E349300A23951 /* ContentView.swift */,
+				E54592F1293E349300A23951 /* SetGameView.swift */,
+				E5459301293E37E700A23951 /* SetCardGame.swift */,
+				E54592FF293E34F400A23951 /* CardGame.swift */,
+				E5459303293F4C2600A23951 /* Oval.swift */,
 				E54592F3293E349400A23951 /* Assets.xcassets */,
 				E54592F5293E349400A23951 /* Preview Content */,
 			);
@@ -137,7 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E54592F2293E349300A23951 /* ContentView.swift in Sources */,
+				E5459300293E34F400A23951 /* CardGame.swift in Sources */,
+				E5459304293F4C2600A23951 /* Oval.swift in Sources */,
+				E5459302293E37E700A23951 /* SetCardGame.swift in Sources */,
+				E54592F2293E349300A23951 /* SetGameView.swift in Sources */,
 				E54592F0293E349300A23951 /* CS193P_Assignment3_SetGameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
