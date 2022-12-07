@@ -59,99 +59,60 @@ struct CardView: View {
         }
     }
     
+    @ViewBuilder
+    func createTypeOfShape<cardShape: Shape> (cardShape: cardShape) -> some View {
+        switch card.content.shading {
+        case "striped":
+            Stripe(color: cardColor, shape: cardShape)
+                .frame(width: DrawingConstants.symbolFrameWidth, height: DrawingConstants.symbolFrameHeight)
+        case "full":
+            cardShape
+                .frame(width: DrawingConstants.symbolFrameWidth, height: DrawingConstants.symbolFrameHeight)
+                .foregroundColor(cardColor)
+        default:
+            cardShape
+                .stroke(lineWidth: 3)
+                .frame(width: DrawingConstants.symbolFrameWidth, height: DrawingConstants.symbolFrameHeight)
+                .foregroundColor(cardColor)
+        }
+    }
+    
+    @ViewBuilder
+    func createShape() -> some View {
+        switch card.content.shape {
+        case "sguiggle":
+            createTypeOfShape(cardShape: Sguiggle())
+        case "diamond":
+            createTypeOfShape(cardShape: Diamond())
+        default:
+            createTypeOfShape(cardShape: RoundedRectangle(cornerRadius: 20))
+        }
+    }
+    
     var body: some View {
         
         ZStack {
             
-            let shape = RoundedRectangle(cornerRadius: 10)
+            let cardShape = RoundedRectangle(cornerRadius: 10)
             
-            shape
+            cardShape
                 .fill()
                 .foregroundColor(.white)
-            shape
-                .strokeBorder(lineWidth: 3)
-                .foregroundColor(.red)
+            cardShape
+                .strokeBorder(lineWidth: 1)
+                .foregroundColor(.black)
             VStack {
-                if card.content.shape == "O" {
-                    if card.content.shading == "hollow" {
-                        ForEach(0..<card.content.numberOfShapes, id: \.self) { _ in
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 40, height: 20)
-                                .foregroundColor(cardColor)
-                            Text("Hollow")
-                        }
-                    }
-                    if card.content.shading == "full" {
-                        ForEach(0..<card.content.numberOfShapes, id: \.self) { _ in
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 40, height: 20)
-                                .foregroundColor(cardColor)
-                            Text("full")
-                        }
-                    }
-                    if card.content.shading == "striped" {
-                        ForEach(0..<card.content.numberOfShapes, id: \.self) { _ in
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 40, height: 20)
-                                .foregroundColor(cardColor)
-                            Text("striped")
-                        }
-                    }
-                    
+                ForEach(0..<card.content.numberOfShapes, id: \.self) { _ in
+                    createShape()
                 }
-                if card.content.shape == "S" {
-                    if card.content.shading == "hollow" {
-                        ForEach(0..<card.content.numberOfShapes, id: \.self) { _ in
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 40, height: 20)
-                                .foregroundColor(cardColor)
-                            Text("Hollow")
-                        }
-                    }
-                    if card.content.shading == "full" {
-                        ForEach(0..<card.content.numberOfShapes, id: \.self) { _ in
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 40, height: 20)
-                                .foregroundColor(cardColor)
-                            Text("full")
-                        }
-                    }
-                    if card.content.shading == "striped" {
-                        ForEach(0..<card.content.numberOfShapes, id: \.self) { _ in
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 40, height: 20)
-                                .foregroundColor(cardColor)
-                            Text("striped")
-                        }
-                    }
-                }
-                if card.content.shape == "D" {
-                    if card.content.shading == "hollow" {
-                        ForEach(0..<card.content.numberOfShapes, id: \.self) { _ in
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 40, height: 20)
-                                .foregroundColor(cardColor)
-                            Text("Hollow")
-                        }
-                    }
-                    if card.content.shading == "full" {
-                        ForEach(0..<card.content.numberOfShapes, id: \.self) { _ in
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 40, height: 20)
-                                .foregroundColor(cardColor)
-                            Text("full")
-                        }
-                    }
-                    if card.content.shading == "striped" {
-                        ForEach(0..<card.content.numberOfShapes, id: \.self) { _ in
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 40, height: 20)
-                                .foregroundColor(cardColor)
-                            Text("striped")
-                        }
-                    }
-                }
+                
             }
+            
         }
+        
+    }
+    private struct DrawingConstants {
+        static let symbolFrameWidth: CGFloat = 40
+        static let symbolFrameHeight: CGFloat = 20
     }
 }

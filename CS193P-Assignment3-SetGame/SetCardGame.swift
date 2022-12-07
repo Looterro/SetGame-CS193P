@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 
 class SetCardGame: ObservableObject {
     
-    private static let shapes = ["D", "S", "O"] // shapes will come with stripes or not, so 3 shapes x 3 different fillings
+    private static let shapes = ["diamond", "sguiggle", "oval"] // shapes will come with stripes or not, so 3 shapes x 3 different fillings
     private static let shading = ["hollow", "full", "striped"]
     private static let colors = ["red", "green", "violet"]
     private static var cardArrayTest: [CardContentTest] = []

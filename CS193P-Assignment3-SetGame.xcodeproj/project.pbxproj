@@ -13,7 +13,9 @@
 		E54592F7293E349400A23951 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E54592F6293E349400A23951 /* Preview Assets.xcassets */; };
 		E5459300293E34F400A23951 /* CardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54592FF293E34F400A23951 /* CardGame.swift */; };
 		E5459302293E37E700A23951 /* SetCardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5459301293E37E700A23951 /* SetCardGame.swift */; };
-		E5459304293F4C2600A23951 /* Oval.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5459303293F4C2600A23951 /* Oval.swift */; };
+		E54593062940941900A23951 /* Diamond.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54593052940941900A23951 /* Diamond.swift */; };
+		E545930829409DF500A23951 /* Sguiggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E545930729409DF500A23951 /* Sguiggle.swift */; };
+		E545930A2940ACE200A23951 /* Stripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54593092940ACE200A23951 /* Stripe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +26,9 @@
 		E54592F6293E349400A23951 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E54592FF293E34F400A23951 /* CardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGame.swift; sourceTree = "<group>"; };
 		E5459301293E37E700A23951 /* SetCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardGame.swift; sourceTree = "<group>"; };
-		E5459303293F4C2600A23951 /* Oval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oval.swift; sourceTree = "<group>"; };
+		E54593052940941900A23951 /* Diamond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diamond.swift; sourceTree = "<group>"; };
+		E545930729409DF500A23951 /* Sguiggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sguiggle.swift; sourceTree = "<group>"; };
+		E54593092940ACE200A23951 /* Stripe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stripe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +65,9 @@
 				E54592F1293E349300A23951 /* SetGameView.swift */,
 				E5459301293E37E700A23951 /* SetCardGame.swift */,
 				E54592FF293E34F400A23951 /* CardGame.swift */,
-				E5459303293F4C2600A23951 /* Oval.swift */,
+				E54593052940941900A23951 /* Diamond.swift */,
+				E545930729409DF500A23951 /* Sguiggle.swift */,
+				E54593092940ACE200A23951 /* Stripe.swift */,
 				E54592F3293E349400A23951 /* Assets.xcassets */,
 				E54592F5293E349400A23951 /* Preview Content */,
 			);
@@ -146,10 +152,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E545930A2940ACE200A23951 /* Stripe.swift in Sources */,
+				E545930829409DF500A23951 /* Sguiggle.swift in Sources */,
 				E5459300293E34F400A23951 /* CardGame.swift in Sources */,
-				E5459304293F4C2600A23951 /* Oval.swift in Sources */,
 				E5459302293E37E700A23951 /* SetCardGame.swift in Sources */,
 				E54592F2293E349300A23951 /* SetGameView.swift in Sources */,
+				E54593062940941900A23951 /* Diamond.swift in Sources */,
 				E54592F0293E349300A23951 /* CS193P_Assignment3_SetGameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
