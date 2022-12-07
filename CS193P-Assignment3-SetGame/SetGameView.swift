@@ -22,6 +22,9 @@ struct SetGameView: View {
                     ForEach(game.cards) { card in
                         CardView(card: card)
                             .aspectRatio(2/3, contentMode: .fit)
+                            .onTapGesture {
+                                game.choose(card)
+                            }
                         
                     }
                     
@@ -30,6 +33,23 @@ struct SetGameView: View {
             }
             .padding(.horizontal)
             
+            HStack {
+                Button {
+                    game.newGame()
+                } label: {
+                    Text("New Game")
+                        .font(.title2)
+                }
+                Spacer()
+                Button {
+                    game.dealThreeMoreCards()
+                } label: {
+                    Text("Add Cards")
+                        .font(.title2)
+                }
+                
+            }
+            .padding(10)
         }
         
     }
@@ -52,7 +72,7 @@ struct CardView: View {
             return .red
         case "green":
             return .green
-        case "violet":
+        case "purple":
             return .purple
         default:
             return .red
@@ -60,7 +80,7 @@ struct CardView: View {
     }
     
     @ViewBuilder
-    func createTypeOfShape<cardShape: Shape> (cardShape: cardShape) -> some View {
+    private func createTypeOfShape<cardShape: Shape> (cardShape: cardShape) -> some View {
         switch card.content.shading {
         case "striped":
             Stripe(color: cardColor, shape: cardShape)
@@ -78,7 +98,7 @@ struct CardView: View {
     }
     
     @ViewBuilder
-    func createShape() -> some View {
+    private func createShape() -> some View {
         switch card.content.shape {
         case "sguiggle":
             createTypeOfShape(cardShape: Sguiggle())
@@ -107,12 +127,23 @@ struct CardView: View {
                 }
                 
             }
+            if card.isChosen {
+                cardShape
+                    .strokeBorder(lineWidth: 2)
+                    .foregroundColor(.blue)
+            }
+            if let isMatched = card.isMatched {
+                cardShape
+                    .foregroundColor(isMatched ? .green : .red).opacity(0.5)
+            }
             
         }
         
     }
+    
     private struct DrawingConstants {
         static let symbolFrameWidth: CGFloat = 40
         static let symbolFrameHeight: CGFloat = 20
     }
+    
 }

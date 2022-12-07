@@ -10,36 +10,41 @@ import SwiftUI
 
 class SetCardGame: ObservableObject {
     
-    private static let shapes = ["diamond", "sguiggle", "oval"] // shapes will come with stripes or not, so 3 shapes x 3 different fillings
+    private static let shapes = ["diamond", "sguiggle", "oval"]
     private static let shading = ["hollow", "full", "striped"]
-    private static let colors = ["red", "green", "violet"]
-    private static var cardArrayTest: [CardContentTest] = []
+    private static let colors = ["red", "green", "purple"]
     
     private static func createSetGame() -> CardGame {
+        
+        var cardsContents: [CardContent] = []
         
         for color in colors {
             for shape in shapes {
                 for shade in shading {
                     for num in 1...3 {
-                        cardArrayTest.append(CardContentTest(shape: shape, color: color, numberOfShapes: num, shading: shade))
+                        cardsContents.append(CardContent(shape: shape, color: color, numberOfShapes: num, shading: shade))
                     }
                 }
             }
         }
-        print(cardArrayTest.count)
-        return CardGame(cardArrayTest)
+        return CardGame(cardsContents)
     }
     
     @Published private var model = createSetGame()
     
     var cards: [CardGame.Card] {
-        model.cards
+        model.playingCards
     }
-}
-
-struct CardContentTest: Equatable  {
-    var shape: String
-    var color: String
-    var numberOfShapes: Int
-    var shading: String
+    
+    func choose(_ card: CardGame.Card) {
+        model.choose(card)
+    }
+    
+    func dealThreeMoreCards() {
+        model.dealThreeMoreCards()
+    }
+    
+    func newGame () {
+        model = Self.createSetGame()
+    }
 }
