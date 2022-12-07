@@ -36,6 +36,10 @@ class SetCardGame: ObservableObject {
         model.playingCards
     }
     
+    var remainingCards: [CardGame.Card] {
+        model.cards
+    }
+    
     func choose(_ card: CardGame.Card) {
         model.choose(card)
     }

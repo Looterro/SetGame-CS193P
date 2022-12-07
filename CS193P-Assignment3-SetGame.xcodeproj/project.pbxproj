@@ -16,6 +16,9 @@
 		E54593062940941900A23951 /* Diamond.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54593052940941900A23951 /* Diamond.swift */; };
 		E545930829409DF500A23951 /* Sguiggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E545930729409DF500A23951 /* Sguiggle.swift */; };
 		E545930A2940ACE200A23951 /* Stripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54593092940ACE200A23951 /* Stripe.swift */; };
+		E545930C2941417E00A23951 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E545930B2941417E00A23951 /* AspectVGrid.swift */; };
+		E545930E294141AE00A23951 /* CardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E545930D294141AE00A23951 /* CardContent.swift */; };
+		E54593102941465B00A23951 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E545930F2941465B00A23951 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		E54593052940941900A23951 /* Diamond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diamond.swift; sourceTree = "<group>"; };
 		E545930729409DF500A23951 /* Sguiggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sguiggle.swift; sourceTree = "<group>"; };
 		E54593092940ACE200A23951 /* Stripe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stripe.swift; sourceTree = "<group>"; };
+		E545930B2941417E00A23951 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
+		E545930D294141AE00A23951 /* CardContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContent.swift; sourceTree = "<group>"; };
+		E545930F2941465B00A23951 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,9 @@
 				E54592F1293E349300A23951 /* SetGameView.swift */,
 				E5459301293E37E700A23951 /* SetCardGame.swift */,
 				E54592FF293E34F400A23951 /* CardGame.swift */,
+				E545930D294141AE00A23951 /* CardContent.swift */,
+				E545930F2941465B00A23951 /* CardView.swift */,
+				E545930B2941417E00A23951 /* AspectVGrid.swift */,
 				E54593052940941900A23951 /* Diamond.swift */,
 				E545930729409DF500A23951 /* Sguiggle.swift */,
 				E54593092940ACE200A23951 /* Stripe.swift */,
@@ -152,11 +161,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E545930C2941417E00A23951 /* AspectVGrid.swift in Sources */,
 				E545930A2940ACE200A23951 /* Stripe.swift in Sources */,
 				E545930829409DF500A23951 /* Sguiggle.swift in Sources */,
 				E5459300293E34F400A23951 /* CardGame.swift in Sources */,
+				E54593102941465B00A23951 /* CardView.swift in Sources */,
 				E5459302293E37E700A23951 /* SetCardGame.swift in Sources */,
 				E54592F2293E349300A23951 /* SetGameView.swift in Sources */,
+				E545930E294141AE00A23951 /* CardContent.swift in Sources */,
 				E54593062940941900A23951 /* Diamond.swift in Sources */,
 				E54592F0293E349300A23951 /* CS193P_Assignment3_SetGameApp.swift in Sources */,
 			);

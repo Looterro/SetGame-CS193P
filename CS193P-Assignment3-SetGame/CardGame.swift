@@ -101,10 +101,3 @@ struct CardGame {
         var isChosen = false
     }
 }
-
-struct CardContent: Equatable  {
-    var shape: String
-    var color: String
-    var numberOfShapes: Int
-    var shading: String
-}
