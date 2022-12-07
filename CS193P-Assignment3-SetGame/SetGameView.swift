@@ -14,42 +14,48 @@ struct SetGameView: View {
     var body: some View {
         
         VStack {
-            
-            ScrollView {
-                
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
+            if game.cards.count != 0 {
+                ScrollView {
                     
-                    ForEach(game.cards) { card in
-                        CardView(card: card)
-                            .aspectRatio(2/3, contentMode: .fit)
-                            .onTapGesture {
-                                game.choose(card)
-                            }
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
+                        
+                        ForEach(game.cards) { card in
+                            CardView(card: card)
+                                .aspectRatio(2/3, contentMode: .fit)
+                                .onTapGesture {
+                                    game.choose(card)
+                                }
+                            
+                        }
                         
                     }
                     
                 }
-                
+                .padding(.horizontal)
+            } else {
+                VStack {
+                    Text("Game Over!")
+                        .font(.largeTitle)
+                }
             }
-            .padding(.horizontal)
             
             HStack {
                 Button {
                     game.newGame()
                 } label: {
                     Text("New Game")
-                        .font(.title2)
+                        .font(.title)
                 }
                 Spacer()
                 Button {
                     game.dealThreeMoreCards()
                 } label: {
                     Text("Add Cards")
-                        .font(.title2)
+                        .font(.title)
                 }
                 
             }
-            .padding(10)
+            .padding(30)
         }
         
     }
@@ -129,7 +135,7 @@ struct CardView: View {
             }
             if card.isChosen {
                 cardShape
-                    .strokeBorder(lineWidth: 2)
+                    .strokeBorder(lineWidth: 3)
                     .foregroundColor(.blue)
             }
             if let isMatched = card.isMatched {
