@@ -34,7 +34,7 @@ struct CardView: View {
                 .foregroundColor(cardColor)
         default:
             cardShape
-                .stroke(lineWidth: 3)
+                .stroke(lineWidth: 2)
                 .foregroundColor(cardColor)
         }
     }
