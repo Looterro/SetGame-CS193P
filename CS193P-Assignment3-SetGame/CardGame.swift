@@ -73,7 +73,7 @@ struct CardGame {
     }
     
     mutating func addCards() {
-        indexesOfChosenCards.forEach({
+        indexesOfChosenCards.reversed().forEach({
             playingCards.remove(at: $0)
             if !cards.isEmpty {
                 playingCards.insert(cards.popLast()!, at: $0)

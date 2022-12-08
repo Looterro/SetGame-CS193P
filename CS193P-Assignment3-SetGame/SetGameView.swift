@@ -14,6 +14,14 @@ struct SetGameView: View {
     var body: some View {
         
         VStack {
+            
+            HStack {
+                Text("Set")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding(.top)
+            }
+            
             if game.cards.count != 0 {
 
                 AspectVGrid(items: game.cards, aspectRatio: 2/3) { card in

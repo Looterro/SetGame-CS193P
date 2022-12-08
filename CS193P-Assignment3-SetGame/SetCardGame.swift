@@ -10,19 +10,33 @@ import SwiftUI
 
 class SetCardGame: ObservableObject {
     
-    private static let shapes = ["diamond", "sguiggle", "oval"]
-    private static let shading = ["hollow", "full", "striped"]
-    private static let colors = ["red", "green", "purple"]
+    enum colors: String, CaseIterable {
+        case red
+        case green
+        case purple
+    }
+    
+    enum shapes: String, CaseIterable {
+        case diamond
+        case sguiggle
+        case oval
+    }
+    
+    enum shading: String, CaseIterable {
+        case hollow
+        case full
+        case striped
+    }
     
     private static func createSetGame() -> CardGame {
         
         var cardsContents: [CardContent] = []
         
-        for color in colors {
-            for shape in shapes {
-                for shade in shading {
+        for color in colors.allCases {
+            for shape in shapes.allCases {
+                for shade in shading.allCases {
                     for num in 1...3 {
-                        cardsContents.append(CardContent(shape: shape, color: color, numberOfShapes: num, shading: shade))
+                        cardsContents.append(CardContent(shape: shape.rawValue, color: color.rawValue, numberOfShapes: num, shading: shade.rawValue))
                     }
                 }
             }
