@@ -65,4 +65,8 @@ class SetCardGame: ObservableObject {
     func newGame () {
         model = Self.createSetGame()
     }
+    
+    var discardedCards: [CardGame.Card] {
+        model.discardedCards
+    }
 }

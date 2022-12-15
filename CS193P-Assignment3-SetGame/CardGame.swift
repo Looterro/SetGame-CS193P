@@ -11,6 +11,7 @@ struct CardGame {
     
     private(set) var cards: [Card]
     private(set) var playingCards: [Card]
+    private(set) var discardedCards: [Card]
     
     private var indexesOfChosenCards: [Int] {
         get { playingCards.indices.filter({ playingCards[$0].isChosen }) }
@@ -38,6 +39,7 @@ struct CardGame {
     init(_ cardsArray: [CardContent]) {
         cards = []
         playingCards = []
+        discardedCards = []
         
         for content in cardsArray {
             cards.append(Card(id: cardsArray.firstIndex(of: content)!*2, content: content))
@@ -53,7 +55,7 @@ struct CardGame {
         
         if indexesOfChosenCards.count == 3 {
             if isSet {
-                addCards()
+                discardCards()
             }
             playingCards.indices.forEach({
                 playingCards[$0].isChosen = false
@@ -72,8 +74,20 @@ struct CardGame {
         }
     }
     
+    private mutating func discardCards() {
+        indexesOfChosenCards.reversed().forEach({
+            var card = playingCards.remove(at: $0)
+            card.isChosen = false
+            card.isMatched = nil
+            discardedCards.append(card)
+        })
+    }
+    
     mutating func addCards() {
         indexesOfChosenCards.reversed().forEach({
+            playingCards[$0].isChosen = false
+            playingCards[$0].isMatched = nil
+            discardedCards.append(playingCards[$0])
             playingCards.remove(at: $0)
             if !cards.isEmpty {
                 playingCards.insert(cards.popLast()!, at: $0)

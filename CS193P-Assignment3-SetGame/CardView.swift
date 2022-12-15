@@ -28,7 +28,12 @@ struct CardView: View {
     private func createTypeOfShape<cardShape: Shape> (cardShape: cardShape) -> some View {
         switch card.content.shading {
         case "striped":
-            Stripe(color: cardColor, shape: cardShape)
+            ZStack {
+                cardShape
+                    .stripify(color: cardColor)
+                cardShape
+                    .stroke(cardColor, lineWidth: 1)
+            }
         case "full":
             cardShape
                 .foregroundColor(cardColor)

@@ -10,6 +10,7 @@ import SwiftUI
 struct SetGameView: View {
     
     @ObservedObject var game: SetCardGame
+    @Namespace private var dealingNameSpace
     
     var body: some View {
         
@@ -26,9 +27,13 @@ struct SetGameView: View {
 
                 AspectVGrid(items: game.cards, aspectRatio: 2/3) { card in
                     CardView(card: card)
+                        .matchedGeometryEffect(id: card.id, in: dealingNameSpace)
                         .padding(5)
+                        .transition(.asymmetric(insertion: .identity, removal: .identity))
                         .onTapGesture {
-                            game.choose(card)
+                            withAnimation {
+                                game.choose(card)
+                            }
                         }
                 }
                 
@@ -40,6 +45,11 @@ struct SetGameView: View {
             }
             
             HStack {
+                
+                discardedPile
+                
+                Spacer()
+                
                 Button {
                     game.newGame()
                 } label: {
@@ -47,19 +57,45 @@ struct SetGameView: View {
                         .font(.title)
                 }
                 Spacer()
-                Button {
-                    game.dealThreeMoreCards()
-                } label: {
-                    Text("Add Cards")
-                        .font(.title)
-                }
-                .disabled(game.remainingCards.isEmpty)
+
+                deckBody
+                    .disabled(game.remainingCards.isEmpty)
                 
             }
             .padding(30)
         }
         
     }
+    
+    var discardedPile: some View {
+        ZStack {
+            ForEach(game.discardedCards) { card in
+                CardView(card: card)
+                    .matchedGeometryEffect(id: card.id, in: dealingNameSpace)
+                    .transition(.asymmetric(insertion: .identity, removal: .opacity))
+                    .rotationEffect(Angle.degrees(Double(card.id * card.id)))
+            }
+        }
+        .frame(width: 60 , height: 90)
+    }
+    
+    var deckBody: some View {
+        ZStack {
+            ForEach(game.remainingCards) { card in
+                CardView(card: card)
+                    .matchedGeometryEffect(id: card.id, in: dealingNameSpace)
+                    .transition(.asymmetric(insertion: .opacity, removal: .identity))
+
+            }
+        }
+        .frame(width: 60 , height: 90)
+        .onTapGesture {
+            withAnimation(.easeInOut(duration: 0.5)) {
+                game.dealThreeMoreCards()
+            }
+        }
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
