@@ -10,7 +10,7 @@ https://user-images.githubusercontent.com/73793088/208236397-e4bee88d-5be0-485d-
 
 - The game uses animation to make dealing cards feel more natural to the eye. To start new game again user can use "New Game" button.
 
-- User is able to select and deselect cards. If three cards are chosen, the model checks if they are all the same or different, with types varying between shading, color, number of shapes and symbols.
+- User is able to select and deselect cards. If three cards are chosen, the model checks if they are all the same or different, with types varying between shading, color, number of shapes and symbols. If a selected set is correct, all three chosen cards' foreground color changes to green and they are tossed into a "discarded" deck after user performs any next action, otherwise the background color is red and user is penalized 1 point for an invalid choice.
 
 - Game uses 81 cards, player can add more cards to table from deck using card deck button in the shape of a card. If a set was already possible with given cards on table, player is penalized 3 points for each possible configuration after drawing from deck. User can add up to 21 cards to the table.
 
