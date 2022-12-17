@@ -83,6 +83,12 @@ struct CardView: View {
                         .strokeBorder(lineWidth: 3)
                         .foregroundColor(.blue)
                 }
+                
+                if card.isHinted {
+                    cardShape
+                        .foregroundColor(.yellow).opacity(0.5)
+                }
+                
                 if let isMatched = card.isMatched {
                     cardShape
                         .foregroundColor(isMatched ? .green : .red).opacity(0.5)

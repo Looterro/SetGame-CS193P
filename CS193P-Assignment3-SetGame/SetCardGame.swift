@@ -46,12 +46,31 @@ class SetCardGame: ObservableObject {
     
     @Published private var model = createSetGame()
     
+    private(set) var highestScore: Double = 0
+    
     var cards: [CardGame.Card] {
         model.playingCards
     }
     
     var remainingCards: [CardGame.Card] {
         model.cards
+    }
+    
+    var score: Int {
+        return Int(floor(model.score))
+    }
+    
+    var highest: Int {
+
+        if Double(model.score) > Double(highestScore) {
+            highestScore = Double(model.score)
+            }
+
+        return Int(highestScore)
+    }
+    
+    func cheat() {
+        model.cheat()
     }
     
     func choose(_ card: CardGame.Card) {
